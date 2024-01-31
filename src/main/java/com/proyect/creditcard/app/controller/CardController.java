@@ -14,14 +14,14 @@ import com.proyect.creditcard.app.entity.Card;
 import com.proyect.creditcard.app.service.CardService;
 
 @RestController
-@RequestMapping("api/cards")
+@RequestMapping("/api/cards")
 public class CardController {
 	
 	@Autowired
 	private CardService cardService;
 	
 	@GetMapping("{id}")
-	Card getCardById(@PathVariable Long id) {
+	Card getCardById(@PathVariable("id") Long id) {
 		Card card = cardService.getCardById(id);
 		return card;
 	}
@@ -33,7 +33,7 @@ public class CardController {
 	}
 	
 	@PutMapping("{id}")
-	Card updateCard(@RequestBody Card card, @PathVariable Long id) {
+	Card updateCard(@RequestBody Card card, @PathVariable("id") Long id) {
 		return cardService.updateCard(card, id);
 	}
 	

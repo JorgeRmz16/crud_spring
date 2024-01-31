@@ -19,7 +19,7 @@ public class Card {
 	@NotEmpty(message="Numero de tarjeta requerido")
 	@Size(min=16, max=16, message = "16 digitos requeridos")
 	@Column(nullable = false, length = 16)
-	private String cardNumber;
+	private String cardnumber;
 	
 	@NotEmpty(message="Ingrese la cantidad")
 	@Min(0)

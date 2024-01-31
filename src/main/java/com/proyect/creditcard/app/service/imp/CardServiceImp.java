@@ -24,19 +24,19 @@ public class CardServiceImp implements CardService{
 	}
 
 	@Override
-	public Card getCardByCardNumber(String cardNumber) {
-		Optional<Card> cardOptional = cardRepository.findByCardNumber(cardNumber);
+	public Card getCardByCardNumber(String cardnumber) {
+		Optional<Card> cardOptional = cardRepository.findByCardnumber(cardnumber);
 		
 		if(cardOptional.isPresent()) return cardOptional.get();
-		else throw new IllegalStateException("Card does not exist " + cardNumber);
+		else throw new IllegalStateException("Card does not exist " + cardnumber);
 	}
 
 	@Override
 	public Card createCard(Card card) {
 		card.setId(null);
 		card.setEnabled(true);
-		if (cardRepository.existsByCardName(card.getCardNumber())){
-			throw new IllegalStateException("Card exist with number " + card.getCardNumber());
+		if (cardRepository.existsByCardnumber(card.getCardnumber())){
+			throw new IllegalStateException("Card exist with number " + card.getCardnumber());
 		}
 		Card newCard = cardRepository.save(card);
 		return newCard;

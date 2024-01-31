@@ -7,7 +7,7 @@ import java.util.Optional;
 
 
 public interface CardRepository extends CrudRepository<Card, Long>{
-	Optional<Card>  findByCardNumber(String cardNumber);
-	boolean existsByCardName (String cardNumber);
+	Optional<Card>  findByCardnumber(String cardnumber);
+	boolean existsByCardnumber (String cardnumber);
 
 }
