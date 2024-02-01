@@ -21,9 +21,9 @@ public class Card {
 	@Column(nullable = false, length = 16)
 	private String cardnumber;
 	
-	@NotEmpty(message="Ingrese la cantidad")
+	@NotNull(message="Ingrese la cantidad")
 	@Min(0)
-	private float balance;
+	private Float balance;
 	
 	private boolean enabled; 
 	@PrePersist

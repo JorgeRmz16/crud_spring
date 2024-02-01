@@ -24,7 +24,7 @@ public class CardServiceImp implements CardService{
 	}
 
 	@Override
-	public Card getCardByCardNumber(String cardnumber) {
+	public Card getCardByCardnumber(String cardnumber) {
 		Optional<Card> cardOptional = cardRepository.findByCardnumber(cardnumber);
 		
 		if(cardOptional.isPresent()) return cardOptional.get();
@@ -53,6 +53,7 @@ public class CardServiceImp implements CardService{
 	public void enabledCard(Long id) {
 		Card existingCard = getCardById(id);
 		existingCard.setEnabled(false);
+		cardRepository.save(existingCard);
 
 	}
 
